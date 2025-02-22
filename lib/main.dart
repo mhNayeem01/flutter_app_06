@@ -16,9 +16,12 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: CachedNetworkImage(
             imageUrl:
-                'https://fastly.picsum.photos/id/8/5000/3333.jpg?hmac=OeG5ufhPYQBd6Rx1TAldAuF92lhCzAhKQKttGfawWuA',
+                'https://fastly..picsum.photos/id/8/5000/3333.jpg?hmac=OeG5ufhPYQBd6Rx1TAldAuF92lhCzAhKQKttGfawWuA',
             placeholder: (context, url) => const CircularProgressIndicator(),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
+            errorWidget:
+                (context, url, error) => Image.network(
+                  'https://img.freepik.com/premium-vector/window-operating-system-error-warning-dialog-window-popup-message-with-system-failure-flat-design_812892-54.jpg?semt=ais_hybrid',
+                ),
           ),
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart'; // Import the CachedNetworkImage package
+import 'package:cached_network_image/cached_network_image.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,30 +10,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: ImageScreen());
-  }
-}
-
-class ImageScreen extends StatelessWidget {
-  const ImageScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Cached Image Example')),
-      body: Center(
-        child: FittedBox(
-          fit: BoxFit.contain,
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Cached Network Image Example')),
+        body: Center(
           child: CachedNetworkImage(
             imageUrl:
                 'https://fastly.picsum.photos/id/8/5000/3333.jpg?hmac=OeG5ufhPYQBd6Rx1TAldAuF92lhCzAhKQKttGfawWuA',
-            placeholder:
-                (context, url) =>
-                    const CircularProgressIndicator(), // Placeholder widget while loading
-            errorWidget:
-                (context, url, error) => const Icon(
-                  Icons.error,
-                ), // Error widget if the image fails to load
+            placeholder: (context, url) => const CircularProgressIndicator(),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
         ),
       ),
